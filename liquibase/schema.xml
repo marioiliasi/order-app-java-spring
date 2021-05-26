@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd"
+                   context="schema">
+
+    <changeSet author="marioiliasi" id="tazz-1">
+        <createTable tableName="courier">
+            <column name="id" autoIncrement="true" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="courier_pk"/>
+            </column>
+            <column name="uuid" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR"/>
+            <column name="vehicle" type="VARCHAR"/>
+            <column name="city" type="VARCHAR"/>
+
+            <column name="created_date" type="TIMESTAMP(6)"/>
+            <column name="created_user" type="VARCHAR"/>
+            <column name="updated_date" type="TIMESTAMP(6)"/>
+            <column name="updated_user" type="VARCHAR"/>
+            <column name="deleted_date" type="TIMESTAMP(6)"/>
+            <column name="deleted_user" type="VARCHAR"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="marioiliasi" id="tazz-2">
+        <createTable tableName="city">
+            <column name="id" autoIncrement="true" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="city_pk"/>
+            </column>
+            <column name="uuid" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR"/>
+
+            <column name="created_date" type="TIMESTAMP(6)"/>
+            <column name="created_user" type="VARCHAR"/>
+            <column name="updated_date" type="TIMESTAMP(6)"/>
+            <column name="updated_user" type="VARCHAR"/>
+            <column name="deleted_date" type="TIMESTAMP(6)"/>
+            <column name="deleted_user" type="VARCHAR"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="marioiliasi" id="tazz-3">
+        <createTable tableName="order">
+            <column name="id" autoIncrement="true" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="order_pk"/>
+            </column>
+            <column name="uuid" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="double precision"/>
+            <column name="courier" type="VARCHAR"/>
+            <column name="vehicle" type="VARCHAR"/>
+            <column name="clientName" type="VARCHAR"/>
+            <column name="city" type="VARCHAR"/>
+            <column name="pickupPointLat" type="double precision"/>
+            <column name="pickupPointLon" type="double precision"/>
+            <column name="dropOffPointLat" type="double precision"/>
+            <column name="dropOffPointLon" type="double precision"/>
+            <column name="promisedTimeOfPickup" type="Date"/>
+            <column name="promisedTimeOfDropOff" type="Date"/>
+
+            <column name="created_date" type="TIMESTAMP(6)"/>
+            <column name="created_user" type="VARCHAR"/>
+            <column name="updated_date" type="TIMESTAMP(6)"/>
+            <column name="updated_user" type="VARCHAR"/>
+            <column name="deleted_date" type="TIMESTAMP(6)"/>
+            <column name="deleted_user" type="VARCHAR"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
